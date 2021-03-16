@@ -3,22 +3,25 @@ import simpleaudio as sa
 from random import shuffle
 from time import sleep
 import matplotlib.pyplot as plt
+import json
 
-BASE_FREQ = 150
-TESTS = 5
-MAX_DELTA_F = 5
-FS = 44100
+with open('./setup.json') as f:
+    data = json.load(f)
+
+BASE_FREQ = data.get('BASE_FREQ')
+FS = data.get('FS')
+FADE_LEN = data.get('FADE_LEN')
 
 
 def fade_in(note):
-    samples = FS//50
+    samples = FS//FADE_LEN
     for i in range(samples):
         note[i] = note[i]*(i/samples)
     return note
 
 
 def fade_out(note):
-    samples = FS//50
+    samples = FS//FADE_LEN
     for i in range(samples):
         note[-i + 1] = note[-i + 1]*(i/samples)
     return note
@@ -44,7 +47,6 @@ def create_stimuli(base_freq, delta_freq):
 
     return test_sound
     
-
 
 def play(test_sound):
     

@@ -14,16 +14,14 @@ BASE_FREQ = data.get('BASE_FREQ')
 
 
 def make_tests():
-    delta_f = randint(5, 15)
     
     while True:
+        delta_f = float(input("Choose frequency difference: "))
         delta_f *= randint(0, 1) * 2 - 1
         test(BASE_FREQ, delta_f)
-        user_answer = input("Do you hear difference? [T/F]\n")
+        user_answer = input("Do you want to still adjust the frequency? [T/F]\n")
         if user_answer == 'F':
             return delta_f
-        delta_f /= 2
-        print(delta_f)
     return None
         
         

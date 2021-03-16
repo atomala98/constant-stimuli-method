@@ -5,10 +5,12 @@ from time import sleep
 import matplotlib.pyplot as plt
 from sound_generation import *
 
-BASE_FREQ = 150
+with open('./setup.json') as f:
+    data = json.load(f)
+
+BASE_FREQ = data.get('BASE_FREQ')
+MAX_DELTA_F = 3
 TESTS = 5
-MAX_DELTA_F = 5
-FS = 44100
 
 
 def make_tests():
