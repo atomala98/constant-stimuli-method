@@ -4,6 +4,8 @@ from random import shuffle
 from time import sleep
 import matplotlib.pyplot as plt
 import json
+from scipy.signal import butter, lfilter
+
 
 with open('./setup.json') as f:
     data = json.load(f)
@@ -47,6 +49,12 @@ def create_stimuli(base_freq, delta_freq):
 
     return test_sound
     
+    
+def create_noise_stimuli(break_ms):
+    
+    noise = np.random.normal(0, 1, 100)
+    print(len(noise))
+    
 
 def play(test_sound):
     
@@ -54,3 +62,4 @@ def play(test_sound):
     audio = audio.astype(np.int16)
     play_obj = sa.play_buffer(audio, 1, 2, FS)
     play_obj.wait_done()
+    

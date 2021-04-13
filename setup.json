@@ -1,5 +1,8 @@
 { 
     "BASE_FREQ": 150,
     "FS": 44100,
-    "FADE_LEN": 1000
+    "FADE_LEN": 1000,
+    "TRANSFOREMD_ATTEMPTS": 3,
+    "STEP_MULTIPLIER" : 2,
+    "WEIGHTED_STEP_MULTIPLIER" : 3
 }

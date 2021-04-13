@@ -7,6 +7,7 @@ from sound_generation import *
 from random import randint
 import json
 
+
 with open('./setup.json') as f:
     data = json.load(f)
 

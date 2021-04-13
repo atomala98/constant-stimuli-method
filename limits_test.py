@@ -23,7 +23,7 @@ def make_tests():
         if user_answer == 'F':
             return delta_f
         delta_f /= 2
-        print(delta_f)
+
     return None
         
         
